@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "../axios";
 import styled, { css } from "styled-components";
+import Youtube from "react-youtube";
 
 const image_base_url = "https://image.tmdb.org/t/p/original/";
 
-// const ListContainer = styled.div`
-//   margin-left: 10px;
-//   margin-right: 10px;
-//   background: black;
-// `;
-
 const AllRow = styled.div`
+  margin-top: 20px;
   margin-left: 10px;
+  color: white;
 `;
 
 const ImageRow = styled.div`
@@ -34,6 +31,7 @@ const MovieThumbnail = styled.img`
   /* apply delay to image transform when image being hovered */
   transition: transform 450ms;
   margin-right: 10px;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.08);
@@ -66,9 +64,17 @@ function DashboardGenre(props) {
     // have to include props.fetchUrl as it is a dependency, so when fetchUrl change it will rerender
   }, [props.fetchUrl]);
 
+  const opts = {
+    height: "390",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+
   return (
     <AllRow>
-      <h2>{props.title}</h2>
+      <h2 style={{ marginLeft: "20px" }}>{props.title}</h2>
       <ImageRow>
         {movies.map((movie) => (
           <MovieThumbnail

@@ -2,10 +2,14 @@ import React from "react";
 import "./App.css";
 import DashboardGenre from "./components/DashboardGenre";
 import requests from "./requests";
+import Banner from "./components/Banner";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <div className="App">
+      <NavBar />
+      <Banner />
       <DashboardGenre
         title="NETFLIX ORIGINALS"
         fetchUrl={requests.fetchNetflixOriginals}
