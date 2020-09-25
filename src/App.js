@@ -1,9 +1,10 @@
 import React from "react";
 import "./App.css";
 import DashboardGenre from "./components/DashboardGenre";
-import requests from "./requests";
+// import requests from "./requests";
 import Banner from "./components/Banner";
 import NavBar from "./components/NavBar";
+import requests from "../../functions/index";
 
 function App() {
   return (

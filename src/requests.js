@@ -1,6 +1,4 @@
-const functions = require("firebase-functions");
-
-const secret = functions.config().tmdb.key;
+const secret = "6fd5efdd978fe5335f3e8456b25bca3d";
 
 const requests = {
   fetchTrending: `/trending/all/week?api_key=${secret}&language=en-US"`,
