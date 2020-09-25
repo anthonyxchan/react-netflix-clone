@@ -64,14 +64,6 @@ function DashboardGenre(props) {
     // have to include props.fetchUrl as it is a dependency, so when fetchUrl change it will rerender
   }, [props.fetchUrl]);
 
-  const opts = {
-    height: "390",
-    width: "100%",
-    playerVars: {
-      autoplay: 1,
-    },
-  };
-
   const addDefaultSrc = (ev) => {
     ev.target.src = { logo };
   };
