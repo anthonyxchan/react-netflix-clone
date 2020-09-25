@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "../axios";
 import styled, { css } from "styled-components";
-import Youtube from "react-youtube";
+import logo from "../assets/images/netflix_logo.svg";
 
 const image_base_url = "https://image.tmdb.org/t/p/original/";
 
@@ -72,22 +72,28 @@ function DashboardGenre(props) {
     },
   };
 
+  const addDefaultSrc = (ev) => {
+    ev.target.src = { logo };
+  };
+
   return (
     <AllRow>
       <h2 style={{ marginLeft: "20px" }}>{props.title}</h2>
       <ImageRow>
-        {movies.map((movie) => (
-          <MovieThumbnail
-            // Keys help React identify which items have changed and increase performance
-            key={movie.id}
-            src={`${image_base_url}${
-              props.isFeaturedRow ? movie.poster_path : movie.backdrop_path
-            }`}
-            // need to pass in isFeaturedRow so styledComponents could pick up different css
-            isFeaturedRow={props.isFeaturedRow}
-            alt={movie.name}
-          />
-        ))}
+        {movies.map((movie) =>
+          movie.backdrop_path ? (
+            <MovieThumbnail
+              // Keys help React identify which items have changed and increase performance
+              key={movie.id}
+              src={`${image_base_url}${
+                props.isFeaturedRow ? movie?.poster_path : movie?.backdrop_path
+              }`}
+              // need to pass in isFeaturedRow so styledComponents could pick up different css
+              isFeaturedRow={props.isFeaturedRow}
+              onError={addDefaultSrc}
+            />
+          ) : null
+        )}
       </ImageRow>
     </AllRow>
   );
