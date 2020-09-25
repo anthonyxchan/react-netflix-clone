@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "../axios";
 // import requests from "../requests";
 import styled from "styled-components";
-import requests from "../../functions/index";
+import requests from "../requests";
 const image_base_url = "https://image.tmdb.org/t/p/original/";
 
 const BannerHeader = styled.header`
